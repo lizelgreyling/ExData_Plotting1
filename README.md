@@ -1,4 +1,16 @@
-## Introduction
+# Coursera Data Science Specialization
+# Exploratory Data Analysis
+## Course Project 1
+
+This repository contains four .png files (plot1.png, plot2.png, plot3.png and plot4.png) as well as four R scripts that can reproduce those plots.
+
+Each plot is sized 480 x 480 and built according to the assignment requirements below.
+
+The R scripts are able to clean the downloaded data and convert it to the correct format to generate the plots, given that the data is downloaded and unzipped to the working directory.
+
+## Assigment Introduction
+
+*(The text below is an exact copy of the assignment detail page by Jeff Leek.)*
 
 This assignment uses data from
 the <a href="http://archive.ics.uci.edu/ml/">UC Irvine Machine
