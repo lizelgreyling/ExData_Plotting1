@@ -4,6 +4,11 @@
 ### 3 December 2014                         ###
 ###############################################
 
+# This script loads and cleans the data form the household_power_consumption.txt file and
+# converts the date and time fields into useable DateTime format.
+# The script creates four different plots on a sigle plane and saves it as a PNG file in 
+# the working directory.
+
 # Load required packages:
 library(sqldf)      
 # The sqldf package allows sql to be used to only load a subset of the data.
@@ -47,19 +52,25 @@ if (!exists("nrg")) {
 
 
 # open png device and set parameters:
-png(filename="plot4.png",width = 480, height = 480, bg= "transparent")
+png(filename="plot4.png",width = 480, height = 480)
 #setup graph layout:
 par(mfcol = c(2,2)) 
+
 # set graphs:
+# Graph 1, top left:
   plot(x=nrg$DateTime,y=nrg$Global_active_power, 
       type="l", xlab = "", ylab = "Global Active Power")
+# Graph 2, bottom left:
   plot(x=nrg$DateTime,y=nrg$Sub_metering_1,
       type="l", xlab = "", ylab = "Energy sub metering")
     lines(x=nrg$DateTime,y=nrg$Sub_metering_2,col="red", type="l")
     lines(x=nrg$DateTime,y=nrg$Sub_metering_3,col="blue", type="l")
   legend("topright", col = c("black","red","blue"),lty=1, bty = "n",
        legend = c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
+# Graph 3, top right:
   plot(x=nrg$DateTime,y=nrg$Voltage, type="l", xlab = "datetime", ylab = "Voltage")
+# Graph 4, bottom right:
   plot(x=nrg$DateTime,y=nrg$Global_reactive_power, type="l", xlab="datetime", ylab = "Global_reactive_power")
+
 # close png device:
 dev.off()

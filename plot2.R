@@ -4,6 +4,11 @@
 ### 3 December 2014                         ###
 ###############################################
 
+# This script loads and cleans the data form the household_power_consumption.txt file and
+# converts the date and time fields into useable DateTime format.
+# It then creates a black line graph, sized 480x480 pixels, of the "Global_active_power" field and saves
+# the plot as a PNG file in the working directory.
+
 # Load required packages:
 library(sqldf)      
 # The sqldf package allows sql to be used to only load a subset of the data.
@@ -47,7 +52,7 @@ if (!exists("nrg")) {
 
 
 # open png device and set parameters:
-png(filename="plot2.png",width = 480, height = 480, bg= "transparent")
+png(filename="plot2.png",width = 480, height = 480)
 
 # set graph:
 plot(x=nrg$DateTime,nrg$Global_active_power, 
